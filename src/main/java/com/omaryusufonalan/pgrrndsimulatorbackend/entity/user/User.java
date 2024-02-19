@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "_user")
 @AllArgsConstructor
 @NoArgsConstructor
