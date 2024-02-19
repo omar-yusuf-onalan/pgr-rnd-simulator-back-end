@@ -2,7 +2,7 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.service.user;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserResponse;
-import com.omaryusufonalan.pgrrndsimulatorbackend.entity.User;
+import com.omaryusufonalan.pgrrndsimulatorbackend.entity.user.User;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.UserMapper;
 import com.omaryusufonalan.pgrrndsimulatorbackend.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;

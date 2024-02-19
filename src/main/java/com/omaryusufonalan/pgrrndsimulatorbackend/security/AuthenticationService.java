@@ -1,7 +1,7 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.security;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserRequest;
-import com.omaryusufonalan.pgrrndsimulatorbackend.entity.User;
+import com.omaryusufonalan.pgrrndsimulatorbackend.entity.user.User;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.UserMapper;
 import com.omaryusufonalan.pgrrndsimulatorbackend.repository.UserRepository;

@@ -2,7 +2,7 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.mapper;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserResponse;
-import com.omaryusufonalan.pgrrndsimulatorbackend.entity.User;
+import com.omaryusufonalan.pgrrndsimulatorbackend.entity.user.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 

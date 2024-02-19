@@ -1,4 +1,4 @@
-package com.omaryusufonalan.pgrrndsimulatorbackend.entity;
+package com.omaryusufonalan.pgrrndsimulatorbackend.entity.user;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
 import jakarta.persistence.*;
