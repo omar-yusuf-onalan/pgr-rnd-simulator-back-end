@@ -1,13 +1,17 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply;
 
+import com.omaryusufonalan.pgrrndsimulatorbackend.enums.ItemType;
 import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import lombok.*;
 
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Item extends Supply {
+    @Enumerated(EnumType.STRING)
+    private ItemType itemType;
 }
