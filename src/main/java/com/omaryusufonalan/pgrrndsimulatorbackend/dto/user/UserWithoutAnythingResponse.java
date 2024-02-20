@@ -10,6 +10,8 @@ import lombok.*;
 @ToString
 public class UserWithoutAnythingResponse {
     private Long id;
+
     private String username;
+
     private Role role;
 }
