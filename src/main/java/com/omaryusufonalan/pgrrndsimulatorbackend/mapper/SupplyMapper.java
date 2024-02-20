@@ -16,13 +16,13 @@ import org.mapstruct.MappingTarget;
 public interface SupplyMapper {
     Construct asConstruct(ConstructRequest constructRequest);
     ConstructResponse asConstructResponse(Construct construct);
-    void updateConstruct(@MappingTarget Construct construct, ConstructRequest constructRequest);
+    void update(@MappingTarget Construct construct, ConstructRequest constructRequest);
 
     Memory asMemory(MemoryRequest memoryRequest);
     MemoryResponse asMemoryResponse(Memory memory);
-    void updateMemory(@MappingTarget Memory memory, MemoryRequest memoryRequest);
+    void update(@MappingTarget Memory memory, MemoryRequest memoryRequest);
 
     Item asItem(ItemRequest itemRequest);
     ItemResponse asItemResponse(Item item);
-    void updateItem(@MappingTarget Item item, ItemRequest itemRequest);
+    void update(@MappingTarget Item item, ItemRequest itemRequest);
 }
