@@ -1,7 +1,8 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.service.dropdetail;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailWithoutBannerResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.DropDetail;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.DropDetailMapper;
 import com.omaryusufonalan.pgrrndsimulatorbackend.repository.DropDetailRepository;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class DropDetailService implements DropDetailCRUD {
+public class DropDetailService implements DropDetailCRUD, GetDropDetailDTO {
     private final DropDetailRepository dropDetailRepository;
     private final DropDetailMapper dropDetailMapper;
 
@@ -40,5 +41,15 @@ public class DropDetailService implements DropDetailCRUD {
     @Override
     public void delete(Long id) {
         dropDetailRepository.delete(getById(id));
+    }
+
+    @Override
+    public DropDetailResponse getResponseById(Long id) {
+        return dropDetailMapper.asDropDetailResponse(getById(id));
+    }
+
+    @Override
+    public DropDetailWithoutBannerResponse getWithoutBannerResponseById(Long id) {
+        return dropDetailMapper.asDropDetailWithoutBannerResponse(getById(id));
     }
 }
