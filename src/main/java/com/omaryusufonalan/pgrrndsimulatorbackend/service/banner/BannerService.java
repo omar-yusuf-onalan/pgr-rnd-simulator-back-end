@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class BannerService implements BannerCRUD {
+public class BannerService implements BannerCRUD, GetBannerDTO {
     private final BannerRepository bannerRepository;
     private final BannerMapper bannerMapper;
 
@@ -40,5 +40,10 @@ public class BannerService implements BannerCRUD {
     @Override
     public void delete(Long id) {
         bannerRepository.delete(getById(id));
+    }
+
+    @Override
+    public BannerResponse getResponseById(Long id) {
+        return bannerMapper.asBannerResponse(getById(id));
     }
 }
