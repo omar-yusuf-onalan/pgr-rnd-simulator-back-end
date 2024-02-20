@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,4 +33,7 @@ public class Banner {
 
     @Enumerated(EnumType.STRING)
     private SupplyType primarySupply;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "banner", cascade = CascadeType.REMOVE)
+    private Set<DropDetail> dropDetails;
 }
