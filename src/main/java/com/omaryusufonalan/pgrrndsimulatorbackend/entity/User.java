@@ -35,26 +35,8 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.REMOVE)
     private Set<Currency> currencies;
-
-    public User initializeUserCurrencies() {
-        CurrencyType[] currencyTypes = CurrencyType.values();
-        Set<Currency> userCurrencies = new HashSet<>();
-
-        for (CurrencyType currencyType : currencyTypes) {
-            userCurrencies.add(new Currency(
-                    null,
-                    0,
-                    currencyType,
-                    this
-            ));
-        }
-
-        this.setCurrencies(userCurrencies);
-
-        return this;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
