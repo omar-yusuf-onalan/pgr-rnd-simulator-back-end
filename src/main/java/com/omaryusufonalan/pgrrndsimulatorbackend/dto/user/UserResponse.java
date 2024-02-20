@@ -1,7 +1,10 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.dto.user;
 
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyWithoutUserResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
 import lombok.*;
+
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,4 +15,5 @@ public class UserResponse {
     private Long id;
     private String username;
     private Role role;
+    private Set<CurrencyWithoutUserResponse> currencies;
 }
