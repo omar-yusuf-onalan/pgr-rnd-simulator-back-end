@@ -2,9 +2,12 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.service.supply;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct.ConstructRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct.ConstructResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.item.ItemRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.item.ItemResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.memory.MemoryRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.memory.MemoryResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply.Construct;
+import com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply.Item;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply.Memory;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply.Supply;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.SupplyMapper;
@@ -15,7 +18,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class SupplyService implements CommonOperation, ConstructOperation, MemoryOperation {
+public class SupplyService implements CommonOperation, ConstructOperation, MemoryOperation, ItemOperation {
     private final SupplyRepository supplyRepository;
     private final SupplyMapper supplyMapper;
 
@@ -70,5 +73,26 @@ public class SupplyService implements CommonOperation, ConstructOperation, Memor
         supplyMapper.update(memoryToBeUpdated, memoryRequest);
 
         return supplyMapper.asMemoryResponse(supplyRepository.save(memoryToBeUpdated));
+    }
+
+    @Override
+    public ItemResponse getItemResponseById(Long id) {
+        return supplyMapper.asItemResponse((Item) getById(id));
+    }
+
+    @Override
+    public ItemResponse create(ItemRequest itemRequest) {
+        Item itemToBeCreated = supplyMapper.asItem(itemRequest);
+
+        return supplyMapper.asItemResponse(supplyRepository.save(itemToBeCreated));
+    }
+
+    @Override
+    public ItemResponse update(Long id, ItemRequest itemRequest) {
+        Item itemToBeUpdated = (Item) getById(id);
+
+        supplyMapper.update(itemToBeUpdated, itemRequest);
+
+        return supplyMapper.asItemResponse(supplyRepository.save(itemToBeUpdated));
     }
 }
