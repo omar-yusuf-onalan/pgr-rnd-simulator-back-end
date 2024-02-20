@@ -1,6 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.entity;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.entity.user.Player;
+import com.omaryusufonalan.pgrrndsimulatorbackend.entity.user.User;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,5 +24,5 @@ public class Currency {
     private CurrencyType type;
 
     @ManyToOne
-    private Player player;
+    private User user;
 }
