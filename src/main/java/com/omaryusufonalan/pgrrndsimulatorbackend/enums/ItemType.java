@@ -5,5 +5,6 @@ public enum ItemType {
     OVERCLOCK_MATERIAL,
     EXP_MATERIAL,
     COG_BOX,
-    EQUIPMENT
+    EQUIPMENT,
+    NONE
 }
