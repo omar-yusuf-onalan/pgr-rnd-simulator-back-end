@@ -2,6 +2,7 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.service.currency;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyWithoutUserResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.Currency;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.CurrencyMapper;
 import com.omaryusufonalan.pgrrndsimulatorbackend.repository.CurrencyRepository;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CurrencyService implements CurrencyCRUD {
+public class CurrencyService implements CurrencyCRUD, GetCurrencyDTO {
     private final CurrencyRepository currencyRepository;
     private final CurrencyMapper currencyMapper;
 
@@ -40,5 +41,15 @@ public class CurrencyService implements CurrencyCRUD {
     @Override
     public void delete(Long id) {
         currencyRepository.delete(getById(id));
+    }
+
+    @Override
+    public CurrencyResponse getResponseById(Long id) {
+        return currencyMapper.asCurrencyResponse(getById(id));
+    }
+
+    @Override
+    public CurrencyWithoutUserResponse getWithoutUserResponseById(Long id) {
+        return currencyMapper.asCurrencyWithoutUserResponse(getById(id));
     }
 }
