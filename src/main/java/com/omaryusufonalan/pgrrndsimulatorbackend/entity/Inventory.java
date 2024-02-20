@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -28,5 +28,5 @@ public class Inventory {
             joinColumns = @JoinColumn(name = "inventory_id"),
             inverseJoinColumns = @JoinColumn(name = "supply_id")
     )
-    private Set<Supply> supplies;
+    private List<Supply> supplies;
 }

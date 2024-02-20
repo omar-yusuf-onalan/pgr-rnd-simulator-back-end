@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -31,5 +31,5 @@ public abstract class Supply {
     private SupplyType supplyType;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Inventory> inventories;
+    private List<Inventory> inventories;
 }
