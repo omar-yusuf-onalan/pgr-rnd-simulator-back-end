@@ -1,6 +1,5 @@
-package com.omaryusufonalan.pgrrndsimulatorbackend.entity.user;
+package com.omaryusufonalan.pgrrndsimulatorbackend.entity;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.entity.Currency;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
 import jakarta.persistence.*;
@@ -32,7 +31,7 @@ public class User implements UserDetails {
     private String username;
 
     private String password;
-    
+
     @Enumerated(EnumType.STRING)
     private Role role;
 

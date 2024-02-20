@@ -1,6 +1,5 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.entity;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.entity.user.User;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
