@@ -1,6 +1,7 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.controller;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct.ConstructRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.item.ItemRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.memory.MemoryRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.service.supply.SupplyService;
 import lombok.RequiredArgsConstructor;
@@ -52,4 +53,18 @@ public class SupplyController {
         return new ResponseEntity<>(supplyService.update(id, memoryRequest), HttpStatus.ACCEPTED);
     }
 
+    @GetMapping("/item/{id}")
+    public ResponseEntity<?> getItemResponseById(@PathVariable Long id) {
+        return new ResponseEntity<>(supplyService.getItemResponseById(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/item")
+    public ResponseEntity<?> create(@RequestBody ItemRequest itemRequest) {
+        return new ResponseEntity<>(supplyService.create(itemRequest), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/item/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody ItemRequest itemRequest) {
+        return new ResponseEntity<>(supplyService.update(id, itemRequest), HttpStatus.ACCEPTED);
+    }
 }
