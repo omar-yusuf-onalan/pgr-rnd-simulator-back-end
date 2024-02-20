@@ -3,7 +3,6 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.security;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.UserInCurrencyRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserRequest;
-import com.omaryusufonalan.pgrrndsimulatorbackend.entity.Currency;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.User;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
@@ -16,9 +15,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
