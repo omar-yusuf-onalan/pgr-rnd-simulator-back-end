@@ -22,4 +22,6 @@ public class DropDetailRequest {
     private int pityGuarantee;
 
     private int shardsObtainedFromDuplicate;
+
+    private BannerInDropDetailRequest banner;
 }
