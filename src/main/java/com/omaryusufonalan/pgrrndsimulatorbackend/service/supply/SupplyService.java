@@ -2,7 +2,10 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.service.supply;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct.ConstructRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct.ConstructResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.memory.MemoryRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.memory.MemoryResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply.Construct;
+import com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply.Memory;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply.Supply;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.SupplyMapper;
 import com.omaryusufonalan.pgrrndsimulatorbackend.repository.SupplyRepository;
@@ -12,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class SupplyService implements CommonOperation, ConstructOperation {
+public class SupplyService implements CommonOperation, ConstructOperation, MemoryOperation {
     private final SupplyRepository supplyRepository;
     private final SupplyMapper supplyMapper;
 
@@ -46,5 +49,26 @@ public class SupplyService implements CommonOperation, ConstructOperation {
         supplyMapper.update(constructToBeUpdated, constructRequest);
 
         return supplyMapper.asConstructResponse(supplyRepository.save(constructToBeUpdated));
+    }
+
+    @Override
+    public MemoryResponse getMemoryResponseById(Long id) {
+        return supplyMapper.asMemoryResponse((Memory) getById(id));
+    }
+
+    @Override
+    public MemoryResponse create(MemoryRequest memoryRequest) {
+        Memory memoryToBeCreated = supplyMapper.asMemory(memoryRequest);
+
+        return supplyMapper.asMemoryResponse(supplyRepository.save(memoryToBeCreated));
+    }
+
+    @Override
+    public MemoryResponse update(Long id, MemoryRequest memoryRequest) {
+        Memory memoryToBeUpdated = (Memory) getById(id);
+
+        supplyMapper.update(memoryToBeUpdated, memoryRequest);
+
+        return supplyMapper.asMemoryResponse(supplyRepository.save(memoryToBeUpdated));
     }
 }
