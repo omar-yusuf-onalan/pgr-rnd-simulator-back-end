@@ -1,5 +1,7 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.entity.user;
 
+import com.omaryusufonalan.pgrrndsimulatorbackend.entity.Currency;
+import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,10 +13,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "_user")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,9 +32,30 @@ public class User implements UserDetails {
     private String username;
 
     private String password;
-
+    
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private Set<Currency> currencies;
+
+    public User initializeUserCurrencies() {
+        CurrencyType[] currencyTypes = CurrencyType.values();
+        Set<Currency> userCurrencies = new HashSet<>();
+
+        for (CurrencyType currencyType : currencyTypes) {
+            userCurrencies.add(new Currency(
+                    null,
+                    0,
+                    currencyType,
+                    this
+            ));
+        }
+
+        this.setCurrencies(userCurrencies);
+
+        return this;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
