@@ -1,8 +1,8 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.service.dropdetail;
 
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailWithoutBannerResponse;
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.DropDetail;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.DropDetailMapper;
 import com.omaryusufonalan.pgrrndsimulatorbackend.repository.DropDetailRepository;

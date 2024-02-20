@@ -1,9 +1,11 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;;
+import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.*;
+
+;
 
 @AllArgsConstructor
 @NoArgsConstructor
