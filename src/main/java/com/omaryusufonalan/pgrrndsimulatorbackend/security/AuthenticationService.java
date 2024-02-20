@@ -1,6 +1,7 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.security;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.entity.user.Player;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.user.User;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.UserMapper;
@@ -22,14 +23,14 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(UserRequest userRequest) {
-        User userToBeRegistered = userMapper.asUser(userRequest);
+        Player playerToBeRegistered = userMapper.asPlayer(userRequest);
 
-        userToBeRegistered.setRole(Role.PLAYER);
-        userToBeRegistered.setPassword(passwordEncoder.encode(userToBeRegistered.getPassword()));
+        playerToBeRegistered.setRole(Role.PLAYER);
+        playerToBeRegistered.setPassword(passwordEncoder.encode(playerToBeRegistered.getPassword()));
 
-        userRepository.save(userToBeRegistered);
+        userRepository.save(playerToBeRegistered.initializePlayerCurrencies());
 
-        return new AuthenticationResponse(jwtService.generateToken(userToBeRegistered));
+        return new AuthenticationResponse(jwtService.generateToken(playerToBeRegistered));
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
