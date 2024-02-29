@@ -2,6 +2,7 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.security;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencySaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserSaveRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.User;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
@@ -31,9 +32,7 @@ public class AuthenticationService {
         userToBeRegistered.setRole(Role.PLAYER);
         userToBeRegistered.setPassword(passwordEncoder.encode(userToBeRegistered.getPassword()));
 
-        userRepository.save(userToBeRegistered);
-
-        initializeUserCurrencies(userToBeRegistered);
+        initializeUserCurrencies(userRepository.save(userToBeRegistered));
 
         return new AuthenticationResponse(jwtService.generateToken(userToBeRegistered));
     }
@@ -42,16 +41,16 @@ public class AuthenticationService {
         CurrencyType[] currencyTypes = CurrencyType.values();
 
         for (CurrencyType currencyType : currencyTypes) {
-            UserInCurrencyRequest userInCurrencyRequest =  new UserInCurrencyRequest(
+            UserUpdateRequest userUpdateRequest =  new UserUpdateRequest(
                     user.getId(),
                     user.getUsername(),
-                    user.getRole()
+                    user.getUsername()
             );
 
             CurrencySaveRequest currencySaveRequest = new CurrencySaveRequest(
                     0,
                     currencyType,
-                    userInCurrencyRequest
+                    userUpdateRequest
                     );
 
             currencyService.create(currencySaveRequest);
