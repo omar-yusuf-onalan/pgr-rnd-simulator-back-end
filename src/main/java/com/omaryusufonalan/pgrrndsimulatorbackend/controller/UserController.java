@@ -1,6 +1,7 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.controller;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserSaveRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,9 +21,9 @@ public class UserController {
         return new ResponseEntity<>(userService.getResponseById(id), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody UserSaveRequest userSaveRequest) {
-        return new ResponseEntity<>(userService.update(id, userSaveRequest), HttpStatus.ACCEPTED);
+    @PutMapping
+    public ResponseEntity<?> update(@RequestBody UserUpdateRequest userUpdateRequest) {
+        return new ResponseEntity<>(userService.update(userUpdateRequest.getId(), userUpdateRequest), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/{id}")

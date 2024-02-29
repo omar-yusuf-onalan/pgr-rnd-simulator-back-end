@@ -1,8 +1,11 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.controller;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct.ConstructSaveRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct.ConstructUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.item.ItemSaveRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.item.ItemUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.memory.MemorySaveRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.memory.MemoryUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.service.supply.SupplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -33,9 +36,9 @@ public class SupplyController {
         return new ResponseEntity<>(supplyService.create(constructRequest), HttpStatus.CREATED);
     }
 
-    @PutMapping("/construct/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody ConstructSaveRequest constructRequest) {
-        return new ResponseEntity<>(supplyService.update(id, constructRequest), HttpStatus.ACCEPTED);
+    @PutMapping("/construct")
+    public ResponseEntity<?> update(@RequestBody ConstructUpdateRequest constructUpdateRequest) {
+        return new ResponseEntity<>(supplyService.update(constructUpdateRequest.getId(), constructUpdateRequest), HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/memory/{id}")
@@ -48,9 +51,9 @@ public class SupplyController {
         return new ResponseEntity<>(supplyService.create(memoryRequest), HttpStatus.CREATED);
     }
 
-    @PutMapping("/memory/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody MemorySaveRequest memoryRequest) {
-        return new ResponseEntity<>(supplyService.update(id, memoryRequest), HttpStatus.ACCEPTED);
+    @PutMapping("/memory")
+    public ResponseEntity<?> update(, @RequestBody MemoryUpdateRequest memoryUpdateRequest) {
+        return new ResponseEntity<>(supplyService.update(memoryUpdateRequest.getId(), memoryUpdateRequest), HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/item/{id}")
@@ -63,8 +66,8 @@ public class SupplyController {
         return new ResponseEntity<>(supplyService.create(itemRequest), HttpStatus.CREATED);
     }
 
-    @PutMapping("/item/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody ItemSaveRequest itemRequest) {
-        return new ResponseEntity<>(supplyService.update(id, itemRequest), HttpStatus.ACCEPTED);
+    @PutMapping("/item")
+    public ResponseEntity<?> update(@RequestBody ItemUpdateRequest itemUpdateRequest) {
+        return new ResponseEntity<>(supplyService.update(itemUpdateRequest.getId(), itemUpdateRequest), HttpStatus.ACCEPTED);
     }
 }

@@ -1,6 +1,7 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.controller;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencySaveRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.service.currency.CurrencyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -30,9 +31,9 @@ public class CurrencyController {
         return new ResponseEntity<>(currencyService.create(currencySaveRequest), HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody CurrencySaveRequest currencySaveRequest) {
-        return new ResponseEntity<>(currencyService.update(id, currencySaveRequest), HttpStatus.ACCEPTED);
+    @PutMapping
+    public ResponseEntity<?> update(@RequestBody CurrencyUpdateRequest currencyUpdateRequest) {
+        return new ResponseEntity<>(currencyService.update(currencyUpdateRequest.getId(), currencyUpdateRequest), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/{id}")
