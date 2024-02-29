@@ -52,7 +52,7 @@ public class SupplyController {
     }
 
     @PutMapping("/memory")
-    public ResponseEntity<?> update(, @RequestBody MemoryUpdateRequest memoryUpdateRequest) {
+    public ResponseEntity<?> update(@RequestBody MemoryUpdateRequest memoryUpdateRequest) {
         return new ResponseEntity<>(supplyService.update(memoryUpdateRequest.getId(), memoryUpdateRequest), HttpStatus.ACCEPTED);
     }
 
