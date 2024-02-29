@@ -1,7 +1,7 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.mapper;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.BannerSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.BannerResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.BannerSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.BannerUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.Banner;
 import org.mapstruct.Mapper;

@@ -1,7 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.security;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencySaveRequest;
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.UserInCurrencyRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.User;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;

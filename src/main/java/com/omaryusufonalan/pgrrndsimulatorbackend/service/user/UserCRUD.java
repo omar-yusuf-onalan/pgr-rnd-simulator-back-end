@@ -1,6 +1,5 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.service.user;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.User;
