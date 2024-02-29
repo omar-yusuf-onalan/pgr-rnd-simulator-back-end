@@ -2,6 +2,7 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.service.user;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.User;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.UserMapper;
 import com.omaryusufonalan.pgrrndsimulatorbackend.repository.UserRepository;
@@ -24,11 +25,11 @@ public class UserService implements UserCRUD, GetUserDTO {
     }
 
     @Override
-    public UserResponse update(Long id, UserSaveRequest userSaveRequest) {
+    public UserResponse update(Long id, UserUpdateRequest userUpdateRequest) {
         User userToBeUpdated = getById(id);
-        userSaveRequest.setPassword(passwordEncoder.encode(userSaveRequest.getPassword()));
+        userUpdateRequest.setPassword(passwordEncoder.encode(userToBeUpdated.getPassword()));
 
-        userMapper.update(userToBeUpdated, userSaveRequest);
+        userMapper.update(userToBeUpdated, userUpdateRequest);
 
         return userMapper.asUserResponse(userRepository.save(userToBeUpdated));
     }

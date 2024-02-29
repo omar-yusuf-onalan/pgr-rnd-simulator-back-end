@@ -2,6 +2,7 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.service.dropdetail;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.OnlyDropDetailResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.DropDetail;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.DropDetailMapper;
@@ -30,10 +31,10 @@ public class DropDetailService implements DropDetailCRUD, GetDropDetailDTO {
     }
 
     @Override
-    public DropDetailResponse update(Long id, DropDetailSaveRequest dropDetailSaveRequest) {
+    public DropDetailResponse update(Long id, DropDetailUpdateRequest dropDetailUpdateRequest) {
         DropDetail dropDetailToBeUpdated = getById(id);
 
-        dropDetailMapper.update(dropDetailToBeUpdated, dropDetailSaveRequest);
+        dropDetailMapper.update(dropDetailToBeUpdated, dropDetailUpdateRequest);
 
         return dropDetailMapper.asDropDetailResponse(dropDetailRepository.save(dropDetailToBeUpdated));
     }

@@ -2,10 +2,13 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.service.supply;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct.ConstructSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct.ConstructResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct.ConstructUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.item.ItemSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.item.ItemResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.item.ItemUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.memory.MemorySaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.memory.MemoryResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.memory.MemoryUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply.Construct;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply.Item;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.supply.Memory;
@@ -46,10 +49,10 @@ public class SupplyService implements CommonOperation, ConstructOperation, Memor
     }
 
     @Override
-    public ConstructResponse update(Long id, ConstructSaveRequest constructRequest) {
+    public ConstructResponse update(Long id, ConstructUpdateRequest constructUpdateRequest) {
         Construct constructToBeUpdated = (Construct) getById(id);
 
-        supplyMapper.update(constructToBeUpdated, constructRequest);
+        supplyMapper.update(constructToBeUpdated, constructUpdateRequest);
 
         return supplyMapper.asConstructResponse(supplyRepository.save(constructToBeUpdated));
     }
@@ -67,10 +70,10 @@ public class SupplyService implements CommonOperation, ConstructOperation, Memor
     }
 
     @Override
-    public MemoryResponse update(Long id, MemorySaveRequest memoryRequest) {
+    public MemoryResponse update(Long id, MemoryUpdateRequest memoryUpdateRequest) {
         Memory memoryToBeUpdated = (Memory) getById(id);
 
-        supplyMapper.update(memoryToBeUpdated, memoryRequest);
+        supplyMapper.update(memoryToBeUpdated, memoryUpdateRequest);
 
         return supplyMapper.asMemoryResponse(supplyRepository.save(memoryToBeUpdated));
     }
@@ -88,10 +91,10 @@ public class SupplyService implements CommonOperation, ConstructOperation, Memor
     }
 
     @Override
-    public ItemResponse update(Long id, ItemSaveRequest itemRequest) {
+    public ItemResponse update(Long id, ItemUpdateRequest itemUpdateRequest) {
         Item itemToBeUpdated = (Item) getById(id);
 
-        supplyMapper.update(itemToBeUpdated, itemRequest);
+        supplyMapper.update(itemToBeUpdated, itemUpdateRequest);
 
         return supplyMapper.asItemResponse(supplyRepository.save(itemToBeUpdated));
     }

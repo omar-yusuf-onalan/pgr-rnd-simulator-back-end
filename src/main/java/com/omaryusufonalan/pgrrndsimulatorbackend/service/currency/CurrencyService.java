@@ -2,6 +2,7 @@ package com.omaryusufonalan.pgrrndsimulatorbackend.service.currency;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencySaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.OnlyCurrencyResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.Currency;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.CurrencyMapper;
@@ -30,10 +31,10 @@ public class CurrencyService implements CurrencyCRUD, GetCurrencyDTO {
     }
 
     @Override
-    public CurrencyResponse update(Long id, CurrencySaveRequest currencySaveRequest) {
+    public CurrencyResponse update(Long id, CurrencyUpdateRequest currencyUpdateRequest) {
         Currency currencyToBeUpdated = getById(id);
 
-        currencyMapper.update(currencyToBeUpdated, currencySaveRequest);
+        currencyMapper.update(currencyToBeUpdated, currencyUpdateRequest);
 
         return currencyMapper.asCurrencyResponse(currencyRepository.save(currencyToBeUpdated));
     }
