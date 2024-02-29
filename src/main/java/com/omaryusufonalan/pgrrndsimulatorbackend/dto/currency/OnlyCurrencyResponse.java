@@ -8,7 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class CurrencyWithoutUserResponse {
+public class OnlyCurrencyResponse {
     private Long id;
 
     private int amount;

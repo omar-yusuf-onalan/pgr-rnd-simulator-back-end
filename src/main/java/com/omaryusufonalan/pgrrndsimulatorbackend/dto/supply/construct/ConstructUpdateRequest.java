@@ -1,6 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.construct;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.SupplyRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.SupplyUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.ConstructType;
 import lombok.*;
 
@@ -9,7 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class ConstructRequest extends SupplyRequest {
+public class ConstructUpdateRequest extends SupplyUpdateRequest {
     private String model;
 
     private String element;

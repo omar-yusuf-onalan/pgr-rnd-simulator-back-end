@@ -11,7 +11,9 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class BannerRequest {
+public class BannerUpdateRequest {
+    private Long id;
+
     private ResearchType researchType;
 
     private BannerType bannerType;

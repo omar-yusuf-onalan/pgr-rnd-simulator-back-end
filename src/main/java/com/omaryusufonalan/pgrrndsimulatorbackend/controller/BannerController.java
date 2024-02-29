@@ -1,6 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.controller;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.BannerRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.BannerSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.service.banner.BannerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,13 +21,13 @@ public class BannerController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody BannerRequest bannerRequest) {
-        return new ResponseEntity<>(bannerService.create(bannerRequest), HttpStatus.CREATED);
+    public ResponseEntity<?> create(@RequestBody BannerSaveRequest bannerSaveRequest) {
+        return new ResponseEntity<>(bannerService.create(bannerSaveRequest), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody BannerRequest bannerRequest) {
-        return new ResponseEntity<>(bannerService.update(id, bannerRequest), HttpStatus.ACCEPTED);
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody BannerSaveRequest bannerSaveRequest) {
+        return new ResponseEntity<>(bannerService.update(id, bannerSaveRequest), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/{id}")

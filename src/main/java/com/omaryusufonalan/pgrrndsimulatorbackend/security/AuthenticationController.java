@@ -1,6 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.security;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserSaveRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,8 +17,8 @@ public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody UserRequest userRequest) {
-        return ResponseEntity.ok(authenticationService.register(userRequest));
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody UserSaveRequest userSaveRequest) {
+        return ResponseEntity.ok(authenticationService.register(userSaveRequest));
     }
 
     @PostMapping("/authenticate")

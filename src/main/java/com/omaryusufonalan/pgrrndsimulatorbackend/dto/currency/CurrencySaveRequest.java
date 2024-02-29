@@ -1,7 +1,8 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.OnlyUserResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.*;
 
 @AllArgsConstructor
@@ -9,12 +10,11 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class CurrencyResponse {
-    private Long id;
-
+public class CurrencySaveRequest {
+    @PositiveOrZero
     private int amount;
 
     private CurrencyType type;
 
-    private OnlyUserResponse user;
+    private UserUpdateRequest user;
 }

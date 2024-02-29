@@ -10,7 +10,9 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class DropDetailRequest {
+public class OnlyDropDetailResponse {
+    private Long id;
+
     private SupplyType supplyType;
 
     private SupplyRarity supplyRarity;
@@ -22,6 +24,4 @@ public class DropDetailRequest {
     private int pityGuarantee;
 
     private int shardsObtainedFromDuplicate;
-
-    private BannerInDropDetailRequest banner;
 }

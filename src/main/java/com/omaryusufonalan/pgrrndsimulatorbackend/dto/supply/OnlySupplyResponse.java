@@ -9,7 +9,9 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public abstract class SupplyRequest {
+public class OnlySupplyResponse {
+    private Long id;
+
     private String name;
 
     private SupplyRarity supplyRarity;

@@ -1,6 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.OnlyBannerResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.BannerUpdateRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.ItemType;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.SupplyRarity;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.SupplyType;
@@ -11,7 +11,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class DropDetailResponse {
+public class DropDetailUpdateRequest {
     private Long id;
 
     private SupplyType supplyType;
@@ -26,5 +26,5 @@ public class DropDetailResponse {
 
     private int shardsObtainedFromDuplicate;
 
-    private OnlyBannerResponse banner;
+    private BannerUpdateRequest banner;
 }

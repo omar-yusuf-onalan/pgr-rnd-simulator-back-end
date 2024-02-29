@@ -1,4 +1,4 @@
-package com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail;
+package com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner;
 
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.BannerType;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;
@@ -11,7 +11,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class BannerInDropDetailRequest {
+public class OnlyBannerResponse {
     private Long id;
 
     private ResearchType researchType;

@@ -1,7 +1,7 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.dto.user;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyWithoutUserResponse;
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.inventory.InventoryWithoutUserResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.OnlyCurrencyResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.inventory.OnlyInventoryResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
 import lombok.*;
 
@@ -19,7 +19,7 @@ public class UserResponse {
 
     private Role role;
 
-    private Set<CurrencyWithoutUserResponse> currencies;
+    private Set<OnlyCurrencyResponse> currencies;
 
-    private InventoryWithoutUserResponse inventory;
+    private OnlyInventoryResponse inventory;
 }

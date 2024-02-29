@@ -1,8 +1,8 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.service.dropdetail;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailResponse;
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailWithoutBannerResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.OnlyDropDetailResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.DropDetail;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.DropDetailMapper;
 import com.omaryusufonalan.pgrrndsimulatorbackend.repository.DropDetailRepository;
@@ -23,17 +23,17 @@ public class DropDetailService implements DropDetailCRUD, GetDropDetailDTO {
     }
 
     @Override
-    public DropDetailResponse create(DropDetailRequest dropDetailRequest) {
-        DropDetail dropDetailToBeCreated = dropDetailMapper.asDropDetail(dropDetailRequest);
+    public DropDetailResponse create(DropDetailSaveRequest dropDetailSaveRequest) {
+        DropDetail dropDetailToBeCreated = dropDetailMapper.asDropDetail(dropDetailSaveRequest);
 
         return dropDetailMapper.asDropDetailResponse(dropDetailRepository.save(dropDetailToBeCreated));
     }
 
     @Override
-    public DropDetailResponse update(Long id, DropDetailRequest dropDetailRequest) {
+    public DropDetailResponse update(Long id, DropDetailSaveRequest dropDetailSaveRequest) {
         DropDetail dropDetailToBeUpdated = getById(id);
 
-        dropDetailMapper.update(dropDetailToBeUpdated, dropDetailRequest);
+        dropDetailMapper.update(dropDetailToBeUpdated, dropDetailSaveRequest);
 
         return dropDetailMapper.asDropDetailResponse(dropDetailRepository.save(dropDetailToBeUpdated));
     }
@@ -49,7 +49,7 @@ public class DropDetailService implements DropDetailCRUD, GetDropDetailDTO {
     }
 
     @Override
-    public DropDetailWithoutBannerResponse getWithoutBannerResponseById(Long id) {
+    public OnlyDropDetailResponse getWithoutBannerResponseById(Long id) {
         return dropDetailMapper.asDropDetailWithoutBannerResponse(getById(id));
     }
 }

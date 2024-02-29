@@ -1,6 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.service.banner;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.BannerRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.BannerSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner.BannerResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.Banner;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.BannerMapper;
@@ -22,17 +22,17 @@ public class BannerService implements BannerCRUD, GetBannerDTO {
     }
 
     @Override
-    public BannerResponse create(BannerRequest bannerRequest) {
-        Banner bannerToBeCreated = bannerMapper.asBanner(bannerRequest);
+    public BannerResponse create(BannerSaveRequest bannerSaveRequest) {
+        Banner bannerToBeCreated = bannerMapper.asBanner(bannerSaveRequest);
 
         return bannerMapper.asBannerResponse(bannerRepository.save(bannerToBeCreated));
     }
 
     @Override
-    public BannerResponse update(Long id, BannerRequest bannerRequest) {
+    public BannerResponse update(Long id, BannerSaveRequest bannerSaveRequest) {
         Banner bannerToBeUpdated = getById(id);
 
-        bannerMapper.update(bannerToBeUpdated, bannerRequest);
+        bannerMapper.update(bannerToBeUpdated, bannerSaveRequest);
 
         return bannerMapper.asBannerResponse(bannerRepository.save(bannerToBeUpdated));
     }

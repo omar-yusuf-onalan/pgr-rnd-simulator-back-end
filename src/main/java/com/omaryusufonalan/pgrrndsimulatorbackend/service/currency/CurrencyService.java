@@ -1,8 +1,8 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.service.currency;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencySaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyResponse;
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyWithoutUserResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.OnlyCurrencyResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.Currency;
 import com.omaryusufonalan.pgrrndsimulatorbackend.mapper.CurrencyMapper;
 import com.omaryusufonalan.pgrrndsimulatorbackend.repository.CurrencyRepository;
@@ -23,17 +23,17 @@ public class CurrencyService implements CurrencyCRUD, GetCurrencyDTO {
     }
 
     @Override
-    public CurrencyResponse create(CurrencyRequest currencyRequest) {
-        Currency currencyToBeCreated = currencyMapper.asCurrency(currencyRequest);
+    public CurrencyResponse create(CurrencySaveRequest currencySaveRequest) {
+        Currency currencyToBeCreated = currencyMapper.asCurrency(currencySaveRequest);
 
         return currencyMapper.asCurrencyResponse(currencyRepository.save(currencyToBeCreated));
     }
 
     @Override
-    public CurrencyResponse update(Long id, CurrencyRequest currencyRequest) {
+    public CurrencyResponse update(Long id, CurrencySaveRequest currencySaveRequest) {
         Currency currencyToBeUpdated = getById(id);
 
-        currencyMapper.update(currencyToBeUpdated, currencyRequest);
+        currencyMapper.update(currencyToBeUpdated, currencySaveRequest);
 
         return currencyMapper.asCurrencyResponse(currencyRepository.save(currencyToBeUpdated));
     }
@@ -49,7 +49,7 @@ public class CurrencyService implements CurrencyCRUD, GetCurrencyDTO {
     }
 
     @Override
-    public CurrencyWithoutUserResponse getWithoutUserResponseById(Long id) {
+    public OnlyCurrencyResponse getWithoutUserResponseById(Long id) {
         return currencyMapper.asCurrencyWithoutUserResponse(getById(id));
     }
 }

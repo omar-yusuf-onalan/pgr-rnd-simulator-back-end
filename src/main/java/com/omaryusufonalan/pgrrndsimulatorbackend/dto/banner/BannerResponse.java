@@ -1,6 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.dto.banner;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailWithoutBannerResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.OnlyDropDetailResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.BannerType;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.ResearchType;
@@ -25,5 +25,5 @@ public class BannerResponse {
 
     private SupplyType primarySupply;
 
-    private Set<DropDetailWithoutBannerResponse> dropDetails;
+    private Set<OnlyDropDetailResponse> dropDetails;
 }

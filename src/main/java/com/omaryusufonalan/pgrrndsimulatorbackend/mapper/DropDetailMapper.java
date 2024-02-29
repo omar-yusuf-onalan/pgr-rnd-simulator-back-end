@@ -1,8 +1,8 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.mapper;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailResponse;
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailWithoutBannerResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.OnlyDropDetailResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.DropDetail;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
@@ -11,13 +11,13 @@ import java.util.Set;
 
 @Mapper
 public interface DropDetailMapper {
-    DropDetail asDropDetail(DropDetailRequest dropDetailRequest);
+    DropDetail asDropDetail(DropDetailSaveRequest dropDetailSaveRequest);
 
     DropDetailResponse asDropDetailResponse(DropDetail dropDetail);
 
     Set<DropDetailResponse> asDropDetailResponses(Set<DropDetail> dropDetail);
 
-    void update(@MappingTarget DropDetail entity, DropDetailRequest dropDetailRequest);
+    void update(@MappingTarget DropDetail entity, DropDetailSaveRequest dropDetailSaveRequest);
 
-    DropDetailWithoutBannerResponse asDropDetailWithoutBannerResponse(DropDetail dropDetail);
+    OnlyDropDetailResponse asDropDetailWithoutBannerResponse(DropDetail dropDetail);
 }

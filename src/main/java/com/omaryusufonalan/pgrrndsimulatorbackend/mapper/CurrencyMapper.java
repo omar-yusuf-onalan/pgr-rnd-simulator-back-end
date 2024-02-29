@@ -1,8 +1,8 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.mapper;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencySaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyResponse;
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyWithoutUserResponse;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.OnlyCurrencyResponse;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.Currency;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
@@ -11,13 +11,13 @@ import java.util.Set;
 
 @Mapper
 public interface CurrencyMapper {
-    Currency asCurrency(CurrencyRequest currencyRequest);
+    Currency asCurrency(CurrencySaveRequest currencySaveRequest);
 
     CurrencyResponse asCurrencyResponse(Currency currency);
 
     Set<CurrencyResponse> asCurrencyResponses(Set<Currency> currency);
 
-    void update(@MappingTarget Currency entity, CurrencyRequest currencyRequest);
+    void update(@MappingTarget Currency entity, CurrencySaveRequest currencySaveRequest);
 
-    CurrencyWithoutUserResponse asCurrencyWithoutUserResponse(Currency currency);
+    OnlyCurrencyResponse asCurrencyWithoutUserResponse(Currency currency);
 }

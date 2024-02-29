@@ -1,5 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.dto.inventory;
 
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserUpdateRequest;
 import lombok.*;
 
 @AllArgsConstructor
@@ -7,6 +8,6 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class InventoryRequest {
-    private UserInInventoryRequest user;
+public class InventorySaveRequest {
+    private UserUpdateRequest user;
 }

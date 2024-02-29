@@ -1,8 +1,8 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.security;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencyRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.CurrencySaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.dto.currency.UserInCurrencyRequest;
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.user.UserSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.entity.User;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.CurrencyType;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.Role;
@@ -26,8 +26,8 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
     private final CurrencyService currencyService;
 
-    public AuthenticationResponse register(UserRequest userRequest) {
-        User userToBeRegistered = userMapper.asUser(userRequest);
+    public AuthenticationResponse register(UserSaveRequest userSaveRequest) {
+        User userToBeRegistered = userMapper.asUser(userSaveRequest);
 
         userToBeRegistered.setRole(Role.PLAYER);
         userToBeRegistered.setPassword(passwordEncoder.encode(userToBeRegistered.getPassword()));
@@ -49,13 +49,13 @@ public class AuthenticationService {
                     user.getRole()
             );
 
-            CurrencyRequest currencyRequest = new CurrencyRequest(
+            CurrencySaveRequest currencySaveRequest = new CurrencySaveRequest(
                     0,
                     currencyType,
                     userInCurrencyRequest
                     );
 
-            currencyService.create(currencyRequest);
+            currencyService.create(currencySaveRequest);
         }
     }
 

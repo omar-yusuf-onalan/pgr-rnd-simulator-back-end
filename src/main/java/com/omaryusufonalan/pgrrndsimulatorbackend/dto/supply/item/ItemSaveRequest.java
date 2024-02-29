@@ -1,6 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.item;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.SupplyRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.supply.SupplySaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.enums.ItemType;
 import lombok.*;
 
@@ -9,6 +9,6 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class ItemRequest extends SupplyRequest {
+public class ItemSaveRequest extends SupplySaveRequest {
     private ItemType itemType;
 }

@@ -1,6 +1,6 @@
 package com.omaryusufonalan.pgrrndsimulatorbackend.controller;
 
-import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailRequest;
+import com.omaryusufonalan.pgrrndsimulatorbackend.dto.dropdetail.DropDetailSaveRequest;
 import com.omaryusufonalan.pgrrndsimulatorbackend.service.dropdetail.DropDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -26,13 +26,13 @@ public class DropDetailController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody DropDetailRequest dropDetailRequest) {
-        return new ResponseEntity<>(dropDetailService.create(dropDetailRequest), HttpStatus.CREATED);
+    public ResponseEntity<?> create(@RequestBody DropDetailSaveRequest dropDetailSaveRequest) {
+        return new ResponseEntity<>(dropDetailService.create(dropDetailSaveRequest), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody DropDetailRequest dropDetailRequest) {
-        return new ResponseEntity<>(dropDetailService.update(id, dropDetailRequest), HttpStatus.ACCEPTED);
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody DropDetailSaveRequest dropDetailSaveRequest) {
+        return new ResponseEntity<>(dropDetailService.update(id, dropDetailSaveRequest), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/{id}")

@@ -8,7 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class UserWithoutAnythingResponse {
+public class OnlyUserResponse {
     private Long id;
 
     private String username;

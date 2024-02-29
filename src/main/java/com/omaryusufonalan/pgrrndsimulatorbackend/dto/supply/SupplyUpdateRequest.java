@@ -9,7 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class SupplyWithoutInventoryResponse {
+public class SupplyUpdateRequest {
     private Long id;
 
     private String name;
